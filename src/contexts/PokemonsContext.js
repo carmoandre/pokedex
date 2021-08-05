@@ -12,16 +12,18 @@ export function PokemonsProvider({ children }) {
 
     useEffect(() => {
         updatePokemons();
-    }, [token?.token]);
+    }, [token?.token]); // eslint-disable-line react-hooks/exhaustive-deps
 
     function updatePokemons() {
-        axios.get(`${process.env.REACT_APP_API_BASE_URL}/pokemons`, {
-            headers: {
-                Authorization: `Bearer ${token?.token}`
-            }
-        }).then(response => {
-            setPokemons(response.data);
-        });
+        axios
+            .get(`${process.env.REACT_APP_API_BASE_URL}/pokemons`, {
+                headers: {
+                    Authorization: `Bearer ${token?.token}`,
+                },
+            })
+            .then((response) => {
+                setPokemons(response.data);
+            });
     }
 
     return (
