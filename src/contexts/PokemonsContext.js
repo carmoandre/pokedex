@@ -22,7 +22,7 @@ export function PokemonsProvider({ children }) {
                 },
             })
             .then((response) => {
-                console.log("deu certo");
+                setPokemons(response.data);
             });
     }
 
