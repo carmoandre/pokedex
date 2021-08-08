@@ -18,11 +18,11 @@ export function PokemonsProvider({ children }) {
         axios
             .get(`${process.env.REACT_APP_API_BASE_URL}/pokemons`, {
                 headers: {
-                    Authorization: `Bearer ${token?.token}`,
+                    Authorization: `Bearer ${token ? token : null}`,
                 },
             })
             .then((response) => {
-                setPokemons(response.data);
+                console.log("deu certo");
             });
     }
 
